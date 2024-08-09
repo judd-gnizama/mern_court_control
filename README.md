@@ -22,5 +22,3 @@
 - git branch -M main
 - git remote add origin https://github.com/judd-gnizama/mern_court_control.git
 - git push -u origin main
-
-//AND I will always love youuu..
