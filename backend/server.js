@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import morgan from "morgan";
 import { echoRouter } from "./routes/echoRouter.js";
+import testRouter from "./routes/test.route.js";
 
 dotenv.config();
 
@@ -21,9 +22,15 @@ app.use(express.json());
 const version = "v1";
 app.use(`/api/${version}/echo`, echoRouter);
 
-app.use("/", (req, res) => {
+// START EDIT - kyle - 8/10/24
+app.use("/api/hello", (req, res) => {
   res.send("Hello World!");
 });
+// END EDIT - kyle - 8/10/24
+
+// START ADD - kyle - 8/10/24
+app.use("/api/test", testRouter);
+// END ADD - kyle - 8/10/24
 
 // Connect to Database
 try {
