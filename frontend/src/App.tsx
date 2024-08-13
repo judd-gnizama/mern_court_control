@@ -14,6 +14,7 @@ function App() {
       const data = await res.json();
 
       setMessage(data.message);
+      console.log("fetched data");
     } catch (error) {
       console.error(error);
     }
