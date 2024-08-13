@@ -35,7 +35,7 @@ app.use("/api/test", testRouter);
 // Connect to Database
 try {
   await mongoose.connect(process.env.MONGO_URI, { dbName: "cc_db" });
-  console.log("Connected to database successfully");
+  console.log("Connected to database successfully.");
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
