@@ -5,12 +5,16 @@ import morgan from "morgan";
 import { echoRouter } from "./routes/echoRouter.js";
 import testRouter from "./routes/test.route.js";
 
+import path, { dirname } from "path";
+import { fileURLToPath } from "url";
+
 dotenv.config();
 
 const PORT = process.env.PORT || 5002;
 const NODE_ENV = process.env.NODE_ENV;
 
 const app = express();
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // Middlewares
 if (NODE_ENV === "development") {
@@ -31,6 +35,10 @@ app.use("/api/hello", (req, res) => {
 // START ADD - kyle - 8/10/24
 app.use("/api/test", testRouter);
 // END ADD - kyle - 8/10/24
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "./client/dist", "index.html"));
+});
 
 // Connect to Database
 try {
