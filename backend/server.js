@@ -37,7 +37,7 @@ app.use("/api/test", testRouter);
 // END ADD - kyle - 8/10/24
 
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, ".././frontend", "index.html"));
+  res.sendFile(path.resolve(__dirname, ".././frontend/dist", "index.html"));
 });
 
 // Connect to Database
