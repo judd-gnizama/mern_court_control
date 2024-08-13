@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+const BACKEND = "https://mern-court-control.onrender.com";
+
 function App() {
   const [message, setMessage] = useState(null);
 
@@ -9,7 +11,7 @@ function App() {
 
   const fetchMessage = async () => {
     try {
-      const res = await fetch(`/api/test`);
+      const res = await fetch(`${BACKEND}/api/test`);
 
       const data = await res.json();
 
