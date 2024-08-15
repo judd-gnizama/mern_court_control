@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:frontend": "cd frontend && npm run build",
-    "build": "npm run build:frontend && start",
+    "build:frontend": "cd frontend && npm i && npm run build",
+    "build": "npm i && npm run build:frontend",
     "server": "nodemon backend/server.js",
     "start": "node backend/server.js"
   },
