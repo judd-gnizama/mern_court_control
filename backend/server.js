@@ -2,10 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import morgan from "morgan";
-import { echoRouter } from "./routes/echoRouter.js";
 import testRouter from "./routes/test.route.js";
-import path, { dirname } from "path";
-import { fileURLToPath } from "url";
 
 dotenv.config();
 
@@ -20,7 +17,6 @@ if (NODE_ENV === "development") {
 }
 app.use(express.json());
 // Routes
-app.use(`/api/echo`, echoRouter);
 
 // START EDIT - kyle - 8/10/24
 app.use("/api/hello", (req, res) => {
