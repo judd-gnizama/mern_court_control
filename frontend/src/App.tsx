@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [message, setMessage] = useState("");
+  const BACKEND_URL = "https://mern-court-control-bkcn.vercel.app";
 
   useEffect(() => {
     fetchMessage();
@@ -9,7 +10,7 @@ function App() {
 
   const fetchMessage = async () => {
     try {
-      const res = await fetch(`/api/test`);
+      const res = await fetch(`${BACKEND_URL}/api/test`);
       const data = await res.json();
       setMessage(data.message);
       console.log("fetched data");
