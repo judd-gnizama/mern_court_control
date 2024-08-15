@@ -5,8 +5,7 @@ const router = Router();
 
 router.all("/", async (req, res) => {
   res.status(StatusCodes.OK).json({
-    method: req.method,
-    body: req.body,
+    message: req.body.concat("from server"),
   });
 });
 
