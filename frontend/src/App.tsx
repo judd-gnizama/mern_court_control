@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
+import { useDBContext } from "./main";
 
 function App() {
   const [message, setMessage] = useState("");
-  const BACKEND_URL = "https://mern-court-control-bkcn.vercel.app";
+  const { backendURL } = useDBContext();
 
   useEffect(() => {
     fetchMessage();
@@ -10,7 +11,7 @@ function App() {
 
   const fetchMessage = async () => {
     try {
-      const res = await fetch(`${BACKEND_URL}/api/test`);
+      const res = await fetch(`${backendURL}/api/test`);
       const data = await res.json();
       setMessage(data.message);
       console.log("fetched data");
