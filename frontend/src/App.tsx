@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [message, setMessage] = useState("");
-  const [inputText, setInputText] = useState("");
 
   useEffect(() => {
     fetchMessage();
