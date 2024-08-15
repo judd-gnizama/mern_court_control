@@ -28,9 +28,8 @@ app.use(cors(corsOptions));
 // Routes
 
 // START EDIT - kyle - 8/10/24
-app.use("/", (req, res, next) => {
+app.use("/api/hello", (req, res) => {
   res.send("Server is up and running!");
-  next();
 });
 // END EDIT - kyle - 8/10/24
 
