@@ -24,8 +24,7 @@ app.use(express.json());
 app.use(express.static(path.resolve(__dirname, "../../frontend/dist")));
 
 // Routes
-const version = "v1";
-app.use(`/api/${version}/echo`, echoRouter);
+app.use(`/api/echo`, echoRouter);
 
 app.get("/", (req, res) => {
   res.json({ path: path.resolve(__dirname, "../../frontend/dist") });

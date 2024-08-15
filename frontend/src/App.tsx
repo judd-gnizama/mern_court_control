@@ -33,8 +33,8 @@ function App() {
 
   return (
     <div>
-      <h1>Welcome! This is from Backend</h1>
-      <p>{message}</p>
+      <h1>Welcome!</h1>
+      <p>This is from Backend: {message}</p>
       <input
         type="text"
         value={message}
