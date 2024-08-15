@@ -21,14 +21,14 @@ if (NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 app.use(express.json());
-app.use(express.static(path.resolve("../frontend/dist")));
+app.use(express.static(path.resolve("frontend/dist")));
 
 // Routes
 const version = "v1";
 app.use(`/api/${version}/echo`, echoRouter);
 
 app.get("/", (req, res) => {
-  res.json({ path: path.resolve("../frontend/dist") });
+  res.json({ path: path.resolve("frontend/dist") });
 });
 
 // START EDIT - kyle - 8/10/24
