@@ -28,8 +28,8 @@ app.use(cors(corsOptions));
 // Routes
 
 // START EDIT - kyle - 8/10/24
-app.use("/api/hello", (req, res) => {
-  res.send("Hello World!");
+app.use("/", (req, res) => {
+  res.send("Server is up and running!");
 });
 // END EDIT - kyle - 8/10/24
 
@@ -41,7 +41,6 @@ app.use("/api/test", testRouter);
 try {
   await mongoose.connect(process.env.MONGO_URI, { dbName: "cc_db" });
   console.log("Connected to database successfully.");
-  console.log(PORT);
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
