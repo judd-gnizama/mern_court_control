@@ -1,11 +1,5 @@
 {
   "version": 2,
   "buildCommand": "npm run build",
-  "outputDirectory": "frontend/dist",
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "backend/server.js"
-    }
-  ]
+  "outputDirectory": "frontend/dist"
 }
