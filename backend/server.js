@@ -21,14 +21,14 @@ if (NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 app.use(express.json());
-app.use(express.static(path.resolve("../../frontend/dist")));
+app.use(express.static(path.resolve(__dirname, "../../frontend/dist")));
 
 // Routes
 const version = "v1";
 app.use(`/api/${version}/echo`, echoRouter);
 
 app.get("/", (req, res) => {
-  res.json({ path: path.resolve("../../frontend/dist") });
+  res.json({ path: path.resolve(__dirname, "../../frontend/dist") });
 });
 
 // START EDIT - kyle - 8/10/24
@@ -41,9 +41,9 @@ app.use("/api/hello", (req, res) => {
 app.use("/api/test", testRouter);
 // END ADD - kyle - 8/10/24
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.resolve(__dirname, "../frontend/dist", "index.html"));
-// });
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../frontend/dist", "index.html"));
+});
 
 // Connect to Database
 try {
