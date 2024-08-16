@@ -2,13 +2,17 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import morgan from "morgan";
-import { echoRouter } from "./routes/echoRouter.js";
 import testRouter from "./routes/test.route.js";
+import cors from "cors";
 
 dotenv.config();
 
 const PORT = process.env.PORT || 5000;
 const NODE_ENV = process.env.NODE_ENV;
+const FRONTEND_URL =
+  NODE_ENV === "development"
+    ? "http://localhost:5173"
+    : process.env.FRONTEND_URL;
 
 const app = express();
 
@@ -17,16 +21,20 @@ if (NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 app.use(express.json());
+const corsOptions = {
+  origin: FRONTEND_URL,
+  methods: "GET, POST, PATCH, DELETE",
+  credentials: true,
+};
+app.use(cors(corsOptions));
 
 // Routes
-const version = "v1";
-app.use(`/api/${version}/echo`, echoRouter);
 
-// START EDIT - kyle - 8/10/24
-app.use("/api/hello", (req, res) => {
+// START EDIT - judd - 8/16/24
+app.use("/", (req, res) => {
   res.send("Hello World!");
 });
-// END EDIT - kyle - 8/10/24
+// END EDIT - judd - 8/16/24
 
 // START ADD - kyle - 8/10/24
 app.use("/api/test", testRouter);

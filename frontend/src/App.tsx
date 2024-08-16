@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [message, setMessage] = useState(null);
+  const BACKEND_URL = "";
+  // const BACKEND_URL = "http://localhost:5000"
 
   useEffect(() => {
     fetchMessage();
@@ -9,7 +11,7 @@ function App() {
 
   const fetchMessage = async () => {
     try {
-      const res = await fetch(`/api/test`);
+      const res = await fetch(`${BACKEND_URL}/api/test`);
 
       const data = await res.json();
 
