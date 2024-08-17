@@ -30,15 +30,15 @@ app.use(cors(corsOptions));
 
 // Routes
 
-// START EDIT - judd - 8/16/24
-app.use("/", (req, res) => {
-  res.send("Hello World!");
-});
-// END EDIT - judd - 8/16/24
-
 // START ADD - kyle - 8/10/24
 app.use("/api/test", testRouter);
 // END ADD - kyle - 8/10/24
+
+// START EDIT - judd - 8/17/24
+app.use("/", (req, res) => {
+  res.json({ message: "Hello World!" });
+});
+// END EDIT - judd - 8/17/24
 
 // Connect to Database
 try {
