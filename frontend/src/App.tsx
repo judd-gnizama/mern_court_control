@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [message, setMessage] = useState(null);
-  // const BACKEND_URL ="https://merncourtcontrolbackendprod-judd-gnizamas-projects.vercel.app";
-  const BACKEND_URL = "http://localhost:5000";
+  const BACKEND_URL =
+    "https://merncourtcontrolbackendprod-judd-gnizamas-projects.vercel.app";
+  // const BACKEND_URL = "http://localhost:5000";
 
   useEffect(() => {
     fetchMessage();
